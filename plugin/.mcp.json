@@ -1,0 +1,6 @@
+{
+  "sentgraph": {
+    "command": "sentgraph-mcp",
+    "args": ["serve"]
+  }
+}

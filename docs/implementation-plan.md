@@ -161,6 +161,7 @@ Reference (грузится по требованию):
 
 ```
 sentgraph-mcp/
+  .claude-plugin/marketplace.json  # маркетплейс плагина для /plugin install
   go.mod                 # module github.com/shilin23061991/sentgraph-mcp, go 1.25
   main.go                # CLI (binary sentgraph-mcp): serve | hook <event> | doctor
   internal/
@@ -173,6 +174,7 @@ sentgraph-mcp/
     hooks/dispatch.go    # обработчики событий
   plugin/
     .claude-plugin/plugin.json
+    .mcp.json            # встроенный MCP (sentgraph-mcp serve)
     hooks/hooks.json
     skills/{recall,remember,forget,session-history,sentgraph-tools}/SKILL.md
   CLAUDE.snippet.md
@@ -192,12 +194,12 @@ sentgraph-mcp/
 ## 11. Статус реализации
 
 - [x] Скелет: `go.mod` (go 1.25) + зависимости; main-пакет в корне (бинарь `sentgraph-mcp`) с режимами `serve`/`hook`/`doctor`.
-- [x] `internal/config`: обязательные ключи ZEP_API_KEY, ZEP_USER_ID, SENTGRAPH_PROJECT_ID из env, с автозагрузкой `.env.local` (godotenv, non-override), тумблеры.
+- [x] `internal/config`: обязательные ключи ZEP_API_KEY, ZEP_USER_ID, SENTGRAPH_PROJECT_ID из env, с автозагрузкой `.env.local` (godotenv, non-override) и хард-требованием `.env.local` для serve/doctor, тумблеры.
 - [x] `internal/redact`: вырезание секретов (API key, JWT, AWS/GCP, bearer).
 - [x] `internal/zepstore` + `internal/memory`: `EnsureIdentity`, `GetContext`, `AddTurn` (return_context), `Search`, `AddData` (чанк >10k), `History`, `Forget`.
 - [x] `internal/mcpserver`: регистрация 6 инструментов с аннотациями; запуск stdio и Streamable HTTP.
 - [x] `internal/transcript`: парс хвоста транскрипта Claude (JSONL) для Stop/SessionEnd.
 - [x] `internal/hooks` + `plugin/hooks/hooks.json`: SessionStart, UserPromptSubmit, Stop, PreCompact, SessionEnd (+опц. PostToolUse); инъекция через additionalContext.
-- [x] `plugin`: `plugin.json` + 4 action-скилла + reference-скилл `sentgraph-tools`.
+- [x] `plugin`: `plugin.json` + 4 action-скилла + reference-скилл `sentgraph-tools` + встроенный MCP (`plugin/.mcp.json`); ставится через marketplace (`.claude-plugin/marketplace.json`, `--scope project`).
 - [x] `CLAUDE.snippet.md`, `.env.example`, README, `zep-memory.md`.
 - [x] Тесты (redact/config/transcript/service с endpoint-shaped мок-Zep) + `go build ./...`, `go vet ./...`, `go test ./...`.

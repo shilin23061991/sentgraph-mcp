@@ -1,0 +1,14 @@
+{
+  "name": "sentgraph-mcp",
+  "owner": {
+    "name": "sentoke"
+  },
+  "description": "Long-term coding-agent memory backed by Zep Cloud.",
+  "plugins": [
+    {
+      "name": "sentgraph",
+      "source": "./plugin",
+      "description": "Zep Cloud-backed long-term memory for coding agents (skills, hooks, MCP)."
+    }
+  ]
+}
