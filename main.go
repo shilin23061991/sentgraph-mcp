@@ -13,12 +13,17 @@ import (
 	"os"
 )
 
+// version is the build version, injected at release time via -ldflags
+// "-X main.version=...". It stays "dev" for local builds and `go install`.
+var version = "dev"
+
 const usage = `sentgraph-mcp - memory MCP server backed by Zep Cloud
 
 Usage:
   sentgraph-mcp serve [--http ADDR]   Run the MCP server (stdio by default)
   sentgraph-mcp hook <event>          Handle a Claude Code lifecycle hook (reads JSON from stdin)
   sentgraph-mcp doctor                Check configuration and Zep connectivity
+  sentgraph-mcp version               Print the binary version
 `
 
 func main() {
@@ -36,6 +41,9 @@ func main() {
 		err = runHook(ctx, os.Args[2:])
 	case "doctor":
 		err = runDoctor(ctx, os.Args[2:])
+	case "version", "--version", "-v":
+		fmt.Println(version)
+		return
 	case "-h", "--help", "help":
 		fmt.Print(usage)
 		return

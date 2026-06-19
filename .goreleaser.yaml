@@ -1,0 +1,61 @@
+version: 2
+
+project_name: sentgraph-mcp
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: sentgraph-mcp
+    main: .
+    binary: sentgraph-mcp
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X main.version={{ .Version }}
+    mod_timestamp: "{{ .CommitTimestamp }}"
+
+archives:
+  - id: sentgraph-mcp
+    ids:
+      - sentgraph-mcp
+    formats:
+      - tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+
+homebrew_casks:
+  - name: sentgraph-mcp
+    repository:
+      owner: shilin23061991
+      name: homebrew-tap
+      branch: main
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    homepage: "https://github.com/shilin23061991/sentgraph-mcp"
+    description: "Zep Cloud-backed long-term memory MCP server for coding agents."
+    binaries:
+      - sentgraph-mcp
+    hooks:
+      post:
+        install: |
+          if OS.mac?
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/sentgraph-mcp"]
+          end

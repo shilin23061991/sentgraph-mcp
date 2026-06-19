@@ -8,6 +8,9 @@
 /sentgraph-mcp
 /sentgraph
 
+# GoReleaser
+/dist/
+
 # Secrets (per-developer; never commit)
 .env
 .env.local
