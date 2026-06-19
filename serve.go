@@ -30,7 +30,7 @@ func runServe(ctx context.Context, args []string) error {
 		return err
 	}
 	store := zepstore.New(cfg.ZepAPIKey)
-	server := mcpserver.New(memory.New(cfg, store), "0.1.0")
+	server := mcpserver.New(memory.New(cfg, store), "0.4.0")
 
 	if *httpAddr == "" {
 		return server.Run(ctx, &mcp.StdioTransport{})
