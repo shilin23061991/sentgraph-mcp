@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/shilin23061991/sengraph-mcp/internal/config"
+	"github.com/shilin23061991/sentgraph-mcp/internal/config"
 )
 
 func TestEnsureIdentityCreatesUserGraphAndThread(t *testing.T) {

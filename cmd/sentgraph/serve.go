@@ -7,10 +7,10 @@ import (
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 
-	"github.com/shilin23061991/sengraph-mcp/internal/config"
-	"github.com/shilin23061991/sengraph-mcp/internal/mcpserver"
-	"github.com/shilin23061991/sengraph-mcp/internal/memory"
-	"github.com/shilin23061991/sengraph-mcp/internal/zepstore"
+	"github.com/shilin23061991/sentgraph-mcp/internal/config"
+	"github.com/shilin23061991/sentgraph-mcp/internal/mcpserver"
+	"github.com/shilin23061991/sentgraph-mcp/internal/memory"
+	"github.com/shilin23061991/sentgraph-mcp/internal/zepstore"
 )
 
 // runServe starts the MCP server. With --http it serves Streamable HTTP,

@@ -5,7 +5,7 @@ import (
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 
-	"github.com/shilin23061991/sengraph-mcp/internal/memory"
+	"github.com/shilin23061991/sentgraph-mcp/internal/memory"
 )
 
 type Server struct {

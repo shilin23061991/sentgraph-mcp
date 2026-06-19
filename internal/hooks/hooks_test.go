@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/shilin23061991/sengraph-mcp/internal/memory"
+	"github.com/shilin23061991/sentgraph-mcp/internal/memory"
 )
 
 func TestHandleSessionStartInjectsContext(t *testing.T) {

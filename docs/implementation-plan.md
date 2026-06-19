@@ -161,7 +161,7 @@ Reference (грузится по требованию):
 
 ```
 sentgraph-mcp/
-  go.mod                 # module github.com/shilin23061991/sengraph-mcp, go 1.25
+  go.mod                 # module github.com/shilin23061991/sentgraph-mcp, go 1.25
   cmd/sentgraph/main.go  # CLI: serve | hook <event> | doctor
   internal/
     config/config.go     # ZEP_API_KEY, ZEP_USER_ID, SENTGRAPH_PROJECT_ID (обязательные env), тумблеры

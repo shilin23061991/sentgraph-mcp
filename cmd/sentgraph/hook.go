@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shilin23061991/sengraph-mcp/internal/config"
-	"github.com/shilin23061991/sengraph-mcp/internal/hooks"
-	"github.com/shilin23061991/sengraph-mcp/internal/memory"
-	"github.com/shilin23061991/sengraph-mcp/internal/zepstore"
+	"github.com/shilin23061991/sentgraph-mcp/internal/config"
+	"github.com/shilin23061991/sentgraph-mcp/internal/hooks"
+	"github.com/shilin23061991/sentgraph-mcp/internal/memory"
+	"github.com/shilin23061991/sentgraph-mcp/internal/zepstore"
 )
 
 // runHook handles a single Claude Code lifecycle event. The hook payload is

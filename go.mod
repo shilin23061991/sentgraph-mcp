@@ -1,4 +1,4 @@
-module github.com/shilin23061991/sengraph-mcp
+module github.com/shilin23061991/sentgraph-mcp
 
 go 1.25.0
 

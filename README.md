@@ -14,7 +14,7 @@ Sentgraph держит локальный слой тонким:
 Без клонирования репозитория (Go скачает модуль сам):
 
 ```bash
-go install github.com/shilin23061991/sengraph-mcp/cmd/sentgraph@latest
+go install github.com/shilin23061991/sentgraph-mcp/cmd/sentgraph@latest
 ```
 
 Из клонированного репозитория:

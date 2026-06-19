@@ -11,7 +11,7 @@ import (
 	zepclient "github.com/getzep/zep-go/v3/client"
 	"github.com/getzep/zep-go/v3/option"
 
-	"github.com/shilin23061991/sengraph-mcp/internal/memory"
+	"github.com/shilin23061991/sentgraph-mcp/internal/memory"
 )
 
 type Store struct {

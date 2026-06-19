@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/shilin23061991/sengraph-mcp/internal/config"
-	"github.com/shilin23061991/sengraph-mcp/internal/redact"
+	"github.com/shilin23061991/sentgraph-mcp/internal/config"
+	"github.com/shilin23061991/sentgraph-mcp/internal/redact"
 )
 
 const (

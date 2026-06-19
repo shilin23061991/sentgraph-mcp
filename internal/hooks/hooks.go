@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/shilin23061991/sengraph-mcp/internal/memory"
-	"github.com/shilin23061991/sengraph-mcp/internal/transcript"
+	"github.com/shilin23061991/sentgraph-mcp/internal/memory"
+	"github.com/shilin23061991/sentgraph-mcp/internal/transcript"
 )
 
 // defaultThreadID is used when a hook payload has no session id. This keeps
