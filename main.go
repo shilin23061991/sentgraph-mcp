@@ -1,10 +1,10 @@
-// Command sentgraph is a memory MCP server backed by Zep Cloud.
+// Command sentgraph-mcp is a memory MCP server backed by Zep Cloud.
 //
 // It runs in three modes:
 //
-//	sentgraph serve [--http ADDR]   run the MCP server (stdio by default)
-//	sentgraph hook <event>          handle a Claude Code lifecycle hook (reads JSON from stdin)
-//	sentgraph doctor                check configuration and Zep connectivity
+//	sentgraph-mcp serve [--http ADDR]   run the MCP server (stdio by default)
+//	sentgraph-mcp hook <event>          handle a Claude Code lifecycle hook (reads JSON from stdin)
+//	sentgraph-mcp doctor                check configuration and Zep connectivity
 package main
 
 import (
@@ -13,12 +13,12 @@ import (
 	"os"
 )
 
-const usage = `sentgraph - memory MCP server backed by Zep Cloud
+const usage = `sentgraph-mcp - memory MCP server backed by Zep Cloud
 
 Usage:
-  sentgraph serve [--http ADDR]   Run the MCP server (stdio by default)
-  sentgraph hook <event>          Handle a Claude Code lifecycle hook (reads JSON from stdin)
-  sentgraph doctor                Check configuration and Zep connectivity
+  sentgraph-mcp serve [--http ADDR]   Run the MCP server (stdio by default)
+  sentgraph-mcp hook <event>          Handle a Claude Code lifecycle hook (reads JSON from stdin)
+  sentgraph-mcp doctor                Check configuration and Zep connectivity
 `
 
 func main() {

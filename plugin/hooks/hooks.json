@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "sentgraph hook SessionStart",
+            "command": "sentgraph-mcp hook SessionStart",
             "timeout": 20
           }
         ]
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "sentgraph hook UserPromptSubmit",
+            "command": "sentgraph-mcp hook UserPromptSubmit",
             "timeout": 20
           }
         ]
@@ -28,7 +28,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "sentgraph hook PreCompact",
+            "command": "sentgraph-mcp hook PreCompact",
             "timeout": 20
           }
         ]
@@ -39,7 +39,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "sentgraph hook Stop",
+            "command": "sentgraph-mcp hook Stop",
             "timeout": 20
           }
         ]
@@ -50,7 +50,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "sentgraph hook SessionEnd",
+            "command": "sentgraph-mcp hook SessionEnd",
             "timeout": 20
           }
         ]

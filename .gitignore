@@ -4,5 +4,6 @@
 # JetBrains IDEs
 .idea/
 
-# Local binaries (root build output only; cmd/sentgraph/ is real source)
+# Local build output
+/sentgraph-mcp
 /sentgraph

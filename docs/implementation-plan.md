@@ -125,7 +125,7 @@ client := zepclient.NewClient(option.WithAPIKey(os.Getenv("ZEP_API_KEY")))
 {"hookSpecificOutput": {"hookEventName": "UserPromptSubmit", "additionalContext": "<zep context block>"}}
 ```
 
-`plugin/hooks/hooks.json` -> каждый event вызывает `sentgraph hook <event>` (читает stdin JSON, диспатчит).
+`plugin/hooks/hooks.json` -> каждый event вызывает `sentgraph-mcp hook <event>` (читает stdin JSON, диспатчит).
 
 ---
 
@@ -162,7 +162,7 @@ Reference (грузится по требованию):
 ```
 sentgraph-mcp/
   go.mod                 # module github.com/shilin23061991/sentgraph-mcp, go 1.25
-  cmd/sentgraph/main.go  # CLI: serve | hook <event> | doctor
+  main.go                # CLI (binary sentgraph-mcp): serve | hook <event> | doctor
   internal/
     config/config.go     # ZEP_API_KEY, ZEP_USER_ID, SENTGRAPH_PROJECT_ID (обязательные env), тумблеры
     zepstore/store.go    # адаптер zep-go/v3 (memory.Gateway)
@@ -191,7 +191,7 @@ sentgraph-mcp/
 
 ## 11. Статус реализации
 
-- [x] Скелет: `go.mod` (go 1.25) + зависимости; `cmd/sentgraph` с режимами `serve`/`hook`/`doctor`.
+- [x] Скелет: `go.mod` (go 1.25) + зависимости; main-пакет в корне (бинарь `sentgraph-mcp`) с режимами `serve`/`hook`/`doctor`.
 - [x] `internal/config`: обязательные env ZEP_API_KEY, ZEP_USER_ID, SENTGRAPH_PROJECT_ID (без фолбэков), тумблеры.
 - [x] `internal/redact`: вырезание секретов (API key, JWT, AWS/GCP, bearer).
 - [x] `internal/zepstore` + `internal/memory`: `EnsureIdentity`, `GetContext`, `AddTurn` (return_context), `Search`, `AddData` (чанк >10k), `History`, `Forget`.

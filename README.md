@@ -14,16 +14,16 @@ Sentgraph держит локальный слой тонким:
 Без клонирования репозитория (Go скачает модуль сам):
 
 ```bash
-go install github.com/shilin23061991/sentgraph-mcp/cmd/sentgraph@latest
+go install github.com/shilin23061991/sentgraph-mcp@latest
 ```
 
 Из клонированного репозитория:
 
 ```bash
-go install ./cmd/sentgraph
+go install .
 ```
 
-Бинарь `sentgraph` попадёт в `$(go env GOBIN)` (или `$(go env GOPATH)/bin`) -- убедитесь, что этот каталог в `PATH`.
+Бинарь `sentgraph-mcp` попадёт в `$(go env GOBIN)` (или `$(go env GOPATH)/bin`) -- убедитесь, что этот каталог в `PATH`.
 
 ## Установка в Claude Code
 
@@ -38,7 +38,7 @@ claude mcp add --transport stdio \
   --env ZEP_API_KEY='${ZEP_API_KEY}' \
   --env ZEP_USER_ID='${ZEP_USER_ID}' \
   --env SENTGRAPH_PROJECT_ID="sentoke" \
-  --scope project sentgraph -- sentgraph serve
+  --scope project sentgraph -- sentgraph-mcp serve
 ```
 
 > Скоуп `project` пишет конфиг в `.mcp.json` (его коммитят). Секреты туда не попадают: `ZEP_API_KEY` и `ZEP_USER_ID` записываются литералами `${...}` (одинарные кавычки -- shell их не раскрывает) и подставляются из окружения каждого разработчика при старте сессии; коммитится только `SENTGRAPH_PROJECT_ID` (замените `sentoke` на свой id). Если `${ZEP_API_KEY}`/`${ZEP_USER_ID}` не заданы в окружении -- Claude Code не запустит сервер.
@@ -48,7 +48,7 @@ claude mcp add --transport stdio \
 Вариант с HTTP (сервер в отдельном процессе):
 
 ```bash
-sentgraph serve --http :8080                                   # терминал 1
+sentgraph-mcp serve --http :8080                               # терминал 1
 claude mcp add --transport http --scope project sentgraph http://localhost:8080   # терминал 2
 ```
 
@@ -103,18 +103,18 @@ printf '\n' >> ./CLAUDE.md && cat CLAUDE.snippet.md >> ./CLAUDE.md
 ### Финальная проверка
 
 ```bash
-sentgraph doctor --online   # проверка конфигурации + связи с Zep
-claude mcp list             # sentgraph должен быть в списке
+sentgraph-mcp doctor --online   # проверка конфигурации + связи с Zep
+claude mcp list                 # sentgraph должен быть в списке
 ```
 
 ## Команды
 
 ```bash
-sentgraph doctor                 # проверка конфигурации (API-ключ, пользователь, project id)
-sentgraph doctor --online        # дополнительно проверить связь с Zep (user/project graph/thread)
-sentgraph serve                  # MCP по stdio (по умолчанию для Claude Code / Cursor)
-sentgraph serve --http :8080     # MCP по Streamable HTTP на ADDR
-sentgraph hook SessionStart
+sentgraph-mcp doctor             # проверка конфигурации (API-ключ, пользователь, project id)
+sentgraph-mcp doctor --online    # дополнительно проверить связь с Zep (user/project graph/thread)
+sentgraph-mcp serve              # MCP по stdio (по умолчанию для Claude Code / Cursor)
+sentgraph-mcp serve --http :8080 # MCP по Streamable HTTP на ADDR
+sentgraph-mcp hook SessionStart
 ```
 
 ## MCP-инструменты
